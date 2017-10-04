@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<channel-adaptor name='jpos-channel' class="org.jpos.q2.iso.ChannelAdaptor" logger="Q2">
+    <channel class="org.jpos.iso.channel.ASCIIChannel" logger="Q2"
+		packager="org.jpos.iso.packager.GenericPackager">
+		<!-- <property name="bind-address" value="10.63.10.82" /> -->
+		<property name="packager-config" value="cfg/packager/iso87ascii.xml" />
+        <property name="host" value="127.0.0.1" />
+        <property name="port" value="54323" />
+    </channel>
+    <in>jpos-send</in>
+    <out>jpos-receive</out>
+    <reconnect-delay>10000</reconnect-delay>
+</channel-adaptor>
+

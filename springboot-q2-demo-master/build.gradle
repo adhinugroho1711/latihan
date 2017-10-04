@@ -1,0 +1,44 @@
+buildscript {
+	ext {
+		springBootVersion = '1.3.5.RELEASE'
+	}
+	repositories {
+		jcenter()
+        maven { url 'http://repo.spring.io/plugins-release' }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group = 'com.vmantek.labworks'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    maven { url 'http://jpos.org/maven' }
+}
+
+dependencies {
+    compile "org.jpos:jpos:2.0.6"
+    compile "com.vmantek.utils.jpos:jpos-deployer-core:1.1.3"
+    compile "com.vmantek.utils.jpos:jpos-deployer-springboot:1.1.3"
+    compile "org.springframework.boot:spring-boot-starter-web"
+}
+
+springBoot {
+    executable = true
+    backupSource = false
+}
+
+bootRun {
+    file('runtime').mkdir()
+    workingDir = 'runtime'
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<server name="simulator-server" class="org.jpos.q2.iso.QServer" logger="Q2">
+  <attr name="port" type="java.lang.Integer">${demo.simulator.port}</attr>
+  <channel name="simulator-channel"
+           class="org.jpos.iso.channel.CSChannel"
+           packager="org.jpos.iso.packager.GenericPackager" logger="Q2">
+    <property name="packager-config" value="jar:packager/iso87binary.xml"/>
+  </channel>
+
+  <request-listener class="org.jpos.bsh.BSHRequestListener" logger="Q2">
+    <property name="source" value="${basedir}/cfg/serversimulator.bsh"/>
+  </request-listener>
+</server>

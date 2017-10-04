@@ -1,0 +1,8 @@
+import org.jpos.iso.*;
+ISOMsg m = message;
+
+m.setResponseMTI ();
+Random random = new Random (System.currentTimeMillis());
+m.set (38, ISOUtil.zeropad (Math.abs(random.nextInt()) % 1000000, 6));
+m.set (39, "00");
+source.send (m);

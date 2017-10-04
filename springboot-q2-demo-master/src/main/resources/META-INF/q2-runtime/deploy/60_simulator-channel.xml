@@ -1,0 +1,12 @@
+<channel-adaptor name='simulator-channel'
+                 class="org.jpos.q2.iso.ChannelAdaptor" logger="Q2">
+  <channel class="org.jpos.iso.channel.CSChannel" logger="Q2"
+           packager="org.jpos.iso.packager.GenericPackager">
+    <property name="packager-config" value="jar:packager/iso87binary.xml"/>
+    <property name="host" value="localhost"/>
+    <property name="port" value="${demo.simulator.port}"/>
+  </channel>
+  <in>simulator-send</in>
+  <out>simulator-receive</out>
+  <reconnect-delay>10000</reconnect-delay>
+</channel-adaptor>

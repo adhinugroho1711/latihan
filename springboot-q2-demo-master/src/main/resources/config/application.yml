@@ -1,0 +1,13 @@
+logging:
+  level:
+    org.hibernate: ERROR
+    org.quartz: ERROR
+    com.mchange.v2: ERROR
+    net.sf.ehcache: ERROR
+
+server:
+  port: 8085
+
+demo:
+  simulator:
+    port: 10000
